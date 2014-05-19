@@ -1,7 +1,8 @@
 set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
 syntax on  "Enables syntax highlighting for programming languages
 set mouse=a "Allows you to click around the text editor with your mouse to move the cursor
-:filetype plugin on "plugins!
+filetype plugin on "plugins!
+filetype indent on
 set omnifunc=syntaxcomplete#Complete
 let g:snips_author =' Justin Lewsader'
 execute pathogen#infect()
@@ -45,3 +46,63 @@ let g:startify_session_detection = 1
 let g:startify_session_autoload = 1
 let g:startify_change_to_dir = 1
 "--- End Startify Plugin
+"Map a leader key <,>
+let mapleader = ","
+let g:mapleader = ","
+"quick save
+nmap <leader>w :w!<cr>
+set ruler
+set cmdheight=2
+" Configure backspace
+set backspace=eol,start,indent
+" Ignore case for search and be smart
+set ignorecase
+set smartcase
+set hlsearch "highlight search results
+set showmatch "matching brackets
+set foldcolumn=1
+"Tabs, text, ect.
+set expandtab
+set smarttab
+set shiftwidth=4
+set tabstop=4
+set lbr
+set tw=500
+set ai
+set si
+set wrap
+"Visual Mode - * or # search current selection
+vnoremap <silent> * :call VisualSelection('f','')<CR>
+vnoremap <silent> # :call VisualSelection('b','')<CR>
+"Windows--
+map j gj
+map k gk
+"Spacebar search
+map <space> / 
+map <c-space> ?
+"move windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <leader>bd :Bclose<cr>
+map <leader>ba :1,1000 bd!<cr>
+"Tab managing
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>t<leader> :tabnext
+"Last edit possition
+autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\ exe "normal! g'\"" |
+	\ endif
+"Quick scribble buffers
+map <leader>q :e ~/buffer<cr>
+map <leader>x :e ~/buffer.md<cr>
+map <leader>pp :setlocal paste!<cr>
+"set clipboard=unnamedplus
+"set pastetoggle=<F10>
+"inoremap <C-v> <F10><C-r>+<F10>
+"vnoremap <C-c> "+y
