@@ -28,23 +28,25 @@ nmap <silent> <Up> gk
 let g:startify_custom_header = [
 	\'                              ',
 	\'   HELLO JUSTIN!              ',
+	\' Press "i" for new file       ',
 	\'                              ',
 	\]
-let g:startify_bookmarks = [ '~/.vimrc' ]
+let g:startify_bookmarks = [ '~/.vimrc','~/.bashrc' ]
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_list_order = [
 	\[' Bookmarks '],
 	\'bookmarks',
-	\['Recent Files'],
+    \['Recent files from the current directory'],
+    \'dir',
+	\['Recent Global Files'],
 	\'files',
-	\['Current Directory'],
-	\'dir',
 	\['Saved Sessions'],
 	\'sessions',
 	\]
 let g:startify_session_detection = 1
 let g:startify_session_autoload = 1
 let g:startify_change_to_dir = 1
+let g:startify_relative_path = 1
 "--- End Startify Plugin
 "Map a leader key <,>
 let mapleader = ","
@@ -93,7 +95,11 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 map <leader>t<leader> :tabnext
-"Last edit possition
+" Open new tab in current dir
+map <leader>te :tabedit <c-r>=expand("%:p:h")<c-r>/
+" Switch CWD to current dir
+map <leader>cd :cd %:p:h<cr>:pwd>cr>
+"Last edit position
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\ exe "normal! g'\"" |
@@ -101,7 +107,9 @@ autocmd BufReadPost *
 "Quick scribble buffers
 map <leader>q :e ~/buffer<cr>
 map <leader>x :e ~/buffer.md<cr>
-map <leader>pp :setlocal paste!<cr>
+set laststatus=2 "status line
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %1
+"map <leader>pp :setlocal paste!<cr>
 "set clipboard=unnamedplus
 "set pastetoggle=<F10>
 "inoremap <C-v> <F10><C-r>+<F10>
