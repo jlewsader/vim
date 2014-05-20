@@ -120,3 +120,4 @@ let g:github_upstream_issues=1
 let g:github_api_url = "https://api.github.com/"
 "zip files in current session
 map <leader>Z :silent bufdo !zip proj.zip %<cr>
+au BufLeave,FocusLost * silent! update "autosave 
