@@ -114,3 +114,7 @@ set laststatus=2 "status line
 "set pastetoggle=<F10>
 "inoremap <C-v> <F10><C-r>+<F10>
 "vnoremap <C-c> "+y
+"GitHub Issues plugin
+let g:github_access_token = "d5e1db75a192bef671deec80369e396baa1879c8"
+let g:github_upstream_issues=1
+let g:github_api_url = "https://api.github.com/"
