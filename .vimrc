@@ -31,7 +31,7 @@ let g:startify_custom_header = [
 	\' Press "i" for new file       ',
 	\'                              ',
 	\]
-let g:startify_bookmarks = [ '~/.vimrc','~/.bashrc' ]
+let g:startify_bookmarks = [ '~/.vim/.vimrc','~/.bashrc' ]
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_list_order = [
 	\[' Bookmarks '],
