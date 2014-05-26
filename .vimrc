@@ -89,6 +89,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 map <leader>bd :Bclose<cr>
 map <leader>ba :1,1000 bd!<cr>
+map <leader>bn :bnext<cr>
 "Tab managing
 map <leader>t :tabnew<cr>
 map <leader>to :tabonly<cr>
