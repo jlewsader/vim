@@ -119,3 +119,4 @@ map <leader>Z :silent bufdo !zip proj.zip %<cr>
 au BufLeave,FocusLost * silent! update "autosave 
 "File Explorer Shortcut
 map <leader>fe :Sex<cr>
+let g:airline#extensions#tabline#enabled=1
