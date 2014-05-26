@@ -90,15 +90,15 @@ map <C-l> <C-W>l
 map <leader>bd :Bclose<cr>
 map <leader>ba :1,1000 bd!<cr>
 "Tab managing
-map <leader>tn :tabnew<cr>
+map <leader>t :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
+map <leader>tm :tabmove<cr>
+map <leader>tn :tabnext<cr>
 " Open new tab in current dir
 map <leader>te :tabedit <c-r>=expand("%:p:h")<c-r>/
 " Switch CWD to current dir
-map <leader>cd :cd %:p:h<cr>:pwd>cr>
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "Last edit position
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -106,7 +106,7 @@ autocmd BufReadPost *
 	\ endif
 "Quick scribble buffers
 map <leader>q :e ~/buffer<cr>
-map <leader>x :e ~/buffer.md<cr>
+map <leader>md :e ~/buffer.md<cr>
 set laststatus=2 "status line
 "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %1
 "map <leader>pp :setlocal paste!<cr>
