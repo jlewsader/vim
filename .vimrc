@@ -121,3 +121,11 @@ au BufLeave,FocusLost * silent! update "autosave
 map <leader>fe :Sex<cr>
 "tabs bar w/ Airline plugin
 let g:airline#extensions#tabline#enabled=1
+"quick insert mode keys
+inoremap $1 ()<esc>i
+inoremap $2 []<esc>i
+inoremap $3 {}<esc>i
+inoremap $4 {<esc>o}<esc>o
+inoremap $q ''<esc>i
+inoremap $e ""<esc>i
+inoremap $t <><esc>i
