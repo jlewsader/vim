@@ -115,6 +115,8 @@ set laststatus=2 "status line
 "set pastetoggle=<F10>
 "inoremap <C-v> <F10><C-r>+<F10>
 "vnoremap <C-c> "+y
+"YankRing show
+map <leader>yr :YRShow<cr> 
 "zip files in current session
 map <leader>Z :silent bufdo !zip proj.zip %<cr>
 au BufLeave,FocusLost * silent! update "autosave 
