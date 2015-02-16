@@ -1,22 +1,48 @@
-set nocompatible "This fixes the problem where arrow keys do not function properly on some systems.
-syntax on  "Enables syntax highlighting for programming languages
-set mouse=a "Allows you to click around the text editor with your mouse to move the cursor
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+Bundle "sudar/vim-arduino-syntax"
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+syntax on  "Enables syntax highlighting for programming languages
+"set mouse=a "Allows you to click around the text editor with your mouse to move the cursor
 filetype plugin on "plugins!
 filetype indent on
 set omnifunc=syntaxcomplete#Complete
-let g:snips_author =' Justin Lewsader'
-execute pathogen#infect()
 set showmatch "Highlights matching brackets in programming languages
 set autoindent "If you're indented, new lines will also be indented
 set smartindent "Automatically indents lines after opening a bracket in programming languages
 set backspace=2 "This makes the backspace key function like it does in other programs.
 set tabstop=4 "How much space Vim gives to a tab
-set number "Line numbering 
+set number "Line numbering 
 set smarttab "Improves tabbing
 set shiftwidth=4 "Assists code formatting
-colorscheme peaksea "Changes the color scheme. Change this to your liking. Lookin /usr/share/vim/vim61/colors/ for options.
-"setlocal spell  "Enables spell checking (CURRENTLY DISABLED because it's kinda annoying). Make sure to uncomment the next line if you use this.
-"set spellfile=~/.vimwords.add  "The location of the spellcheck dictionary. Uncomment this line if you uncomment the previous line.
 set foldmethod=manual "Lets you hide sections of code
 "--- The following commands make the navigation keys work like standard editors
 imap <silent> <Down> <C-o>gj
@@ -24,30 +50,6 @@ imap <silent> <Up> <C-o>gk
 nmap <silent> <Down> gj
 nmap <silent> <Up> gk
 "--- Ends navigation commands
-"--- Startify Plugin
-let g:startify_custom_header = [
-	\'                              ',
-	\'   HELLO JUSTIN!              ',
-	\' Press "i" for new file       ',
-	\'                              ',
-	\]
-let g:startify_bookmarks = [ '~/.vim/.vimrc','~/.bashrc','~/.bash_profile','~/.bash_aliases' ]
-let g:startify_session_dir = '~/.vim/session'
-let g:startify_list_order = [
-	\[' Bookmarks '],
-	\'bookmarks',
-    \['Recent files from the current directory'],
-    \'dir',
-	\['Recent Global Files'],
-	\'files',
-	\['Saved Sessions'],
-	\'sessions',
-	\]
-let g:startify_session_detection = 1
-let g:startify_session_autoload = 1
-let g:startify_change_to_dir = 1
-let g:startify_relative_path = 1
-"--- End Startify Plugin
 "Map a leader key <,>
 let mapleader = ","
 let g:mapleader = ","
@@ -73,23 +75,9 @@ set tw=500
 set ai
 set si
 set wrap
-"Visual Mode - * or # search current selection
-vnoremap <silent> * :call VisualSelection('f','')<CR>
-vnoremap <silent> # :call VisualSelection('b','')<CR>
-"Windows--
-map j gj
-map k gk
 "Spacebar search
 map <space> / 
 map <c-space> ?
-"move windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-map <leader>bd :Bclose<cr>
-map <leader>ba :1,1000 bd!<cr>
-map <leader>bn :bnext<cr>
 "Tab managing
 map <leader>t :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -105,25 +93,11 @@ autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\ exe "normal! g'\"" |
 	\ endif
-"Quick scribble buffers
-map <leader>q :e ~/buffer<cr>
-map <leader>md :e ~/buffer.md<cr>
 set laststatus=2 "status line
 "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %1
-"map <leader>pp :setlocal paste!<cr>
-"set clipboard=unnamedplus
-"set pastetoggle=<F10>
-"inoremap <C-v> <F10><C-r>+<F10>
-"vnoremap <C-c> "+y
-"YankRing show
-map <leader>yr :YRShow<cr> 
-"zip files in current session
-map <leader>Z :silent bufdo !zip proj.zip %<cr>
 au BufLeave,FocusLost * silent! update "autosave 
 "File Explorer Shortcut
 map <leader>fe :Sex<cr>
-"tabs bar w/ Airline plugin
-let g:airline#extensions#tabline#enabled=1
 "quick insert mode keys
 inoremap $1 ()<esc>i
 inoremap $2 []<esc>i
@@ -132,3 +106,4 @@ inoremap $4 {<esc>o}<esc>o
 inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 inoremap $t <><esc>i
+
