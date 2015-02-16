@@ -15,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
 Bundle "sudar/vim-arduino-syntax"
+Bundle "mhinz/vim-startify"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,6 +79,14 @@ set wrap
 "Spacebar search
 map <space> / 
 map <c-space> ?
+move windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <leader>bd :Bclose<cr>
+map <leader>ba :1,1000 bd!<cr>
+map <leader>bn :bnext<cr>
 "Tab managing
 map <leader>t :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -106,4 +115,27 @@ inoremap $4 {<esc>o}<esc>o
 inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 inoremap $t <><esc>i
-
+ "--- Startify Plugin
+ let g:startify_custom_header = [
+ \'                              ',
+ \'   HELLO JUSTIN!              ',
+ \' Press "i" for new file       ',
+ \'                              ',
+ \]
+ let g:startify_bookmarks = [ '~/.bashrc' ]
+ let g:startify_session_dir = '~/.vim/session'
+ let g:startify_list_order = [
+ \[' Bookmarks '],
+ \'bookmarks',
+ \['Recent files from the current directory'],
+ \'dir',
+ \['Recent Global Files'],
+ \'files',
+ \['Saved Sessions'],
+ \'sessions',
+ \]
+ let g:startify_session_detection = 1
+ let g:startify_session_autoload = 1
+ let g:startify_change_to_dir = 1
+ let g:startify_relative_path = 1
+ "--- End Startify Plugin
