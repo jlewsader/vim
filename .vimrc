@@ -56,6 +56,8 @@ let mapleader = ","
 let g:mapleader = ","
 "quick save
 nmap <leader>w :w!<cr>
+"quick close
+nmap <leader>q :q!<cr>
 set ruler
 set cmdheight=2
 " Configure backspace
@@ -67,6 +69,7 @@ set hlsearch "highlight search results
 set showmatch "matching brackets
 set foldcolumn=1
 "Tabs, text, ect.
+set cindent
 set expandtab
 set smarttab
 set shiftwidth=4
@@ -80,6 +83,7 @@ set wrap
 map <space> / 
 map <c-space> ?
 "move windows
+map <S-w> <C-w><C-w>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -87,6 +91,7 @@ map <C-l> <C-W>l
 map <leader>bd :Bclose<cr>
 map <leader>ba :1,1000 bd!<cr>
 map <leader>bn :bnext<cr>
+map <leader>bd :bd!<cr>
 "Tab managing
 map <leader>t :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -116,13 +121,7 @@ inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 inoremap $t <><esc>i
  "--- Startify Plugin
- let g:startify_custom_header = [
- \'                              ',
- \'   HELLO JUSTIN!              ',
- \' Press "i" for new file       ',
- \'                              ',
- \]
- let g:startify_bookmarks = [ '~/.bashrc' ]
+ let g:startify_bookmarks = ['~/.vimrc', '~/.bashrc' ]
  let g:startify_session_dir = '~/.vim/session'
  let g:startify_list_order = [
  \[' Bookmarks '],
@@ -139,3 +138,5 @@ inoremap $t <><esc>i
  let g:startify_change_to_dir = 1
  let g:startify_relative_path = 1
  "--- End Startify Plugin
+ " :dj  "--- Jump to #define
+ " :dla "--- List #define
